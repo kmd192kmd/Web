@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex17_form.html -->
+	<!-- 
+	
+		<form>, 폼
+		
+		HTML Form + HTML Input Control
+		- 입력 양식
+		- 쿨라이언트(사용자)로부터 입력장치(키보드, 마우스, 터치 등)을 통해서 데이터 입력받는 역할(HTML Input Control) > 데이터를 서버로 전송하는 역할(HTML Form)
+		ex) 텍스트 박스, 라디오 버튼, 체크 박스, 버튼 등
+		
+		
+		<form> 태그
+		- 스스로 랜더링 결과를 만들지 않는다.(눈에 안보임)
+		- 기능성 태그
+		- 입력받은 값을 서버로 보내는 역할
+		
+		form.method
+		- 데이터를 서버로 전송하는 방식
+		- 서버에게 요청하는 방식(진실)
+		a. GET
+			- ex17_ok.jsp?id=hong
+		b. POST
+			- ex17_ok.jsp
+		
+		form.action
+		
+	 -->
+	 <h1>데이터 입력</h1>
+	 
+	 <form method="POST" action="ex17_ok.jsp">
+	 	아이디: <input type="text" name="id">
+	 	<input type="submit" value="보내기">
+	 </form>
+</body>
+</html>

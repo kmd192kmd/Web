@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex17_form.html -->
+	<!-- 
+	
+		<form>, 폼
+		
+		HTML Form + HTML Input Control
+		- 입력 양식
+		- 쿨라이언트(사용자)로부터 입력장치(키보드, 마우스, 터치 등)을 통해서 데이터 입력받는 역할(HTML Input Control) > 데이터를 서버로 전송하는 역할(HTML Form)
+		ex) 텍스트 박스, 라디오 버튼, 체크 박스, 버튼 등
+	
+	 -->
+</body>
+</html>

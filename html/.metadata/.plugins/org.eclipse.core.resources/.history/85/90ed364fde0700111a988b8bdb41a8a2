@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- 
+	
+		<head>
+		- 브라우저에게 전달할 메타 정보를 담는 컨테이너
+		
+		1. <meta>
+		
+		2. <title>
+	
+	
+	 -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		ex04_head.html
+		ex04_head.htm
+	 -->
+</body>
+</html>

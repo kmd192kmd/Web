@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {border 1px;}
+</style>
+</head>
+<body>
+
+	<!-- 
+	
+		HTML 수업 = XML 수업 > ML 언어
+		
+		HTML 구성 요소
+		
+		1. 태그(Tag), 요소(Element)
+		2. 특성(Attribute)
+		3. 텍스트(PCDATA)
+		4. 주석(Comment)
+		--------------------------------
+		5. 선언문(Declaration)
+		6. 엔티티(Entity)
+		7. 외부 요소
+		8. 등등..
+		
+		
+		1. 태그(Tag), 요소(Element)
+		- 명령어를 <>로 묶어 놓은 요소
+		- HTML 문서에서 골격(뼈대)을 만드는 역할(레이아웃 생성) a
+		- 데이터를 화면에 출력하는 역할 b
+		
+		
+	 -->
+	 
+	 <div>홍길동</div>
+	 <div>아무개</div>
+	 
+	 <h1> 제목입니다.</h1>
+	 
+	 <font color="blue">오늘 수업은 HTML 입니다.</font>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>주소록</h1>
+	
+	<table border="1" width="500">
+		<tr bgcolor="#DDDDDD">
+			<td><b>번호</b></td>
+			<td><b>이름</b></td>
+			<td><b>나이</b></td>
+			<td><b>성별</b></td>
+			<td><b>주소</b></td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>홍길동</td>
+			<td>20</td>
+			<td>남자</td>
+			<td>서울시 강남구 대치동 H타워</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>강아지</td>
+			<td>3</td>
+			<td>남자</td>
+			<td>서울시 강동구 천호동</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>고양이</td>
+			<td>5</td>
+			<td>여자</td>
+			<td>서울시 동대문구 휘경동</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>홍길동</td>
+			<td>20</td>
+			<td>남자</td>
+			<td>서울시 강남구 대치동 H타워</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>강아지</td>
+			<td>3</td>
+			<td>남자</td>
+			<td>서울시 강동구 천호동</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>고양이</td>
+			<td>5</td>
+			<td>여자</td>
+			<td>서울시 동대문구 휘경동</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>홍길동</td>
+			<td>20</td>
+			<td>남자</td>
+			<td>서울시 강남구 대치동 H타워</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>강아지</td>
+			<td>3</td>
+			<td>남자</td>
+			<td>서울시 강동구 천호동</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>고양이</td>
+			<td>5</td>
+			<td>여자</td>
+			<td>서울시 동대문구 휘경동</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>홍길동</td>
+			<td>20</td>
+			<td>남자</td>
+			<td>서울시 강남구 대치동 H타워</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>강아지</td>
+			<td>3</td>
+			<td>남자</td>
+			<td>서울시 강동구 천호동</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>고양이</td>
+			<td>5</td>
+			<td>여자</td>
+			<td>서울시 동대문구 휘경동</td>
+		</tr>
+	</table>
+
+</body>
+</html>

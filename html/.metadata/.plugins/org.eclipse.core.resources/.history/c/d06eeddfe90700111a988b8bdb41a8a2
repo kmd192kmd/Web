@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+
+<body bgcolor="#FFFF00">
+<body bg
+	<!-- ex05_body.html -->
+	<!-- 
+	
+		<body> 태그
+		- 모든 출력 내용을 관리하는 컨테이너
+		
+		<body> 속성
+		1. bgcolor
+			- 문서 배경색
+		
+		2. background
+			- 문서 배경 이미지
+			
+		
+		HTML 색상 표현법
+		1. 색상명
+			- Named Color, Well-known Color
+			- 미리 약속된 몇가지 색상명을 사용(140가지)
+		
+		2. RGB
+			- Red + Green + Blue = 조합
+			- 각 색상별 단계: 256단계 > 0~255, 00~FF
+			- 256 x 256 x 256 = 16,777,216
+			- 16진수 표기법
+			- #000000(검정색) ~ #FFFFFF(흰색)
+			- #FF0000 > 빨간색
+			- #00FF00 > 녹색
+			- #0000FF > 파란색
+			- #FFFF00 > 노란색
+			- #FF00FF > 보라색
+			- #FF0 > 노란색
+			- #3388AA > #38A
+			- #AF F2 33 > X 
+			
+			
+		HTML에서 자원의 경로를 표현하는 방법
+		- 문서, 이미지, 동영상, 각종 파일 > 어느 위치에? > URL
+	
+	 -->
+</body>
+</html>
