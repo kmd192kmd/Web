@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /*  
+        
+            CSS 속성
+
+
+            HTML의 속성은 태그에 종속적이다.
+            - <body bgcolor="">: O
+            - <div bgcolor=""> : X
+
+            CSS의 속성은 태그에 독립적이다.
+            - CSS 속성은 모든 태그에 적용할 수 있다.
+
+
+
+
+
+            background 속성
+
+            1. background-color
+
+            2. background-image
+
+            3. background-repeat
+
+            4. background-position
+
+            5. background-attachment
+
+
+
+            CSS 색상 표현법
+            1. Color name: red, yellow, blue.. 140가지
+            2. RGB Color(HEX): #000000 ~ #FFFFFF
+            3. RGB Color(DEC): rgb(0,0,0) ~ rgb(255,255,255)
+            4. RGBA Color(DEC): rgb(0,0,0,1) > Alpha Channel(불투명도: 0~1)
+            5. RGBA Color(HEX): #RRGGBBAA
+        
+        */        
+
+        body {
+            /* background-color: yellow; */
+            /* background-color: #FB87A5; */
+            /* background-color: rgb(35, 128, 255); */
+            /* background-color: rgba(35, 128, 255, 1); */
+            /* background-color: #FFFF00AA; */
+
+            /* background-image: url("images/catty01.png"); */
+            /* background-image: url('images/catty02.png'); */
+            /* background-image: url(images/catty03.png); */
+
+            background-image: url(images/wall25.jpg);    
+            
+            background-repeat: no-repeat;
+            /* background-position: 2500px 0px; */
+            /* background-position: 50% 50%; */
+            /* background-position: right center; */ 
+            /* 9가지 방향 */
+
+            background-position: center center;
+
+            /* background-attachment: scroll; */
+            background-attachment: fixed;
+
+
+            /*  
+                
+                html, body
+                - 블럭 태그
+                - 블럭 태그의 너비 > 항상 100%
+                - 블럭 태그의 높이 > 내용물만큼
+
+            */
+
+            background-color: yellow;
+            border: 10px solid blue;
+
+        } /* body */
+
+        html {
+            border: 10px solid red;
+        }
+
+        div {
+            /* background-color: orange; */
+
+            /* 
+            background-image: url(images/catty01.png);
+            background-repeat: no-repeat; 
+            */
+
+            background: url(images/catty02.png) no-repeat;
+ 
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex10_background.html -->
+    <div>a<br>a<br>a<br>a<br>a<br></div>
+
+    (p>lorem)*30
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, harum quo! Adipisci, excepturi! Vitae repellendus reprehenderit similique exercitationem, enim suscipit? Ducimus distinctio blanditiis illum maxime, sed odio est necessitatibus amet.</p>
+    <p>Quaerat nobis incidunt quia quidem. Reiciendis, molestiae? Aspernatur tenetur quas dolores repellendus repellat unde incidunt reprehenderit, necessitatibus quasi quaerat error magnam doloribus consectetur voluptates tempora ad architecto! Accusamus, ut veritatis.</p>
+    <p>Esse facere alias, natus ad sint ab? Ex iusto, dolore commodi repudiandae atque laboriosam facilis molestias adipisci. Dolores repellendus soluta, sequi neque maxime repellat nihil aspernatur doloribus dignissimos ad officiis!</p>
+    <p>Deserunt iure, ipsam porro quia debitis doloremque? Corporis dignissimos alias nihil fuga id fugit, beatae ipsam excepturi quam, commodi temporibus natus asperiores nobis aliquid nesciunt tempore ab quo, perferendis voluptatem?</p>
+    <p>Possimus facilis, harum dolor sed, cum dignissimos tenetur sequi vel cumque ipsam aut ex facere fugit soluta debitis voluptates voluptatum eaque et aliquam est iusto, aliquid consequuntur non. Minima, error.</p>
+    <p>Similique dolorem quis, maxime error eaque maiores at recusandae aperiam beatae amet! Mollitia et dolorem non ad amet ea, reiciendis obcaecati vel quis explicabo quas omnis corporis nemo totam perferendis!</p>
+    <p>Obcaecati sapiente mollitia exercitationem fuga! Officia numquam iure dolorum earum sint minima! Quasi quisquam doloribus amet, omnis quo accusantium quaerat voluptate! Enim libero quae voluptatibus id dolorum, nostrum laudantium eius!</p>
+    <p>Quae voluptatibus voluptas, vero eligendi illo natus minus atque architecto iusto dolore adipisci debitis eveniet, nisi, dignissimos pariatur eius et nihil facere. Labore molestias sequi laudantium unde aliquam mollitia itaque!</p>
+    <p>Deserunt pariatur saepe sint quidem, obcaecati ipsa repellat eaque. Totam perspiciatis id vero, reiciendis sit consequatur doloremque velit consectetur distinctio earum. Ex reiciendis vero sequi neque natus adipisci, et nobis.</p>
+    <p>Corrupti, accusantium aliquam ducimus odit dignissimos quod modi impedit amet eligendi dolores magni quaerat, voluptatibus ut laudantium consequatur officiis quasi adipisci. Vitae dolorum eveniet atque, ut omnis nesciunt voluptatibus vel.</p>
+    <p>Qui minima quae facere asperiores! Dicta totam vel, aperiam, numquam consequuntur expedita ratione rem culpa quibusdam nam asperiores incidunt aliquid esse repellat! Perferendis, doloribus ut? Sequi rerum illum labore soluta?</p>
+    <p>Distinctio omnis beatae dolorum autem aut quam officiis odit voluptas delectus deleniti deserunt impedit possimus, recusandae aperiam, quis harum ipsum? Deserunt aspernatur culpa soluta, a explicabo ea quasi incidunt nam.</p>
+    <p>Delectus, ducimus! Harum accusamus placeat quia quos iusto ab ducimus animi at repellat sint omnis magnam blanditiis neque, laborum fugit eveniet explicabo exercitationem quibusdam distinctio dignissimos voluptatum nobis! Dignissimos, deleniti?</p>
+    <p>Magni exercitationem quis voluptate reprehenderit ratione, atque veritatis, suscipit quidem obcaecati tenetur labore iusto earum eaque placeat dolores eos fugiat quod perspiciatis est optio temporibus, incidunt sapiente. Sunt, odio similique!</p>
+    <p>Magnam earum autem minus, sit molestiae id suscipit explicabo ad pariatur voluptas quasi, praesentium doloribus? Ex error vel tenetur deleniti incidunt nostrum, dolores fugiat ea eos, illum dolorum harum! Quia.</p>
+    <p>Eaque eius, deleniti quae dolore impedit vel praesentium eveniet, eum debitis tenetur aliquid saepe nulla aperiam, tempore magnam repellendus iste. Saepe exercitationem eveniet nihil beatae necessitatibus aliquam. Et, accusantium expedita.</p>
+    <p>Quos assumenda maxime quod mollitia id minus dolorem reiciendis voluptas, nihil velit eum laboriosam sunt inventore porro aspernatur distinctio dicta ullam voluptatibus possimus laborum. Quo neque tempore corporis officiis perferendis.</p>
+    <p>Laudantium nulla, nemo ut labore ab veritatis inventore quas laboriosam. Ipsum dolorem sed sunt, repellendus minima quidem blanditiis eius tenetur doloremque aut dolores harum architecto provident ratione vel quam debitis.</p>
+    <p>Earum repellat, facere harum suscipit officiis est in eos quis voluptatibus et nulla provident molestias ea error porro obcaecati! Ipsa impedit vel perferendis neque sint. Eos est fugiat eligendi eaque!</p>
+    <p>Dolorum eligendi a ipsam fugit, iure amet exercitationem animi sequi nostrum iusto tenetur, commodi magnam obcaecati rem, omnis enim corrupti id cumque consectetur at inventore aliquam. Magnam hic deleniti commodi!</p>
+    <p>Architecto perspiciatis obcaecati ex omnis placeat quia cumque, earum quaerat, quae ut voluptates aspernatur illum fugit dicta, dolores ab esse praesentium! Sit amet numquam quisquam expedita quia ducimus enim quibusdam.</p>
+    <p>Consequuntur iste aut est doloremque ipsam tempore distinctio assumenda magnam eum minima consequatur quod facere neque eius explicabo a amet voluptatibus sapiente alias autem veritatis, magni officia. Beatae, suscipit minus?</p>
+    <p>Nobis blanditiis harum aperiam accusamus, et esse est! Atque quisquam nihil repudiandae, nam recusandae ipsa, repellat accusamus laudantium minus porro beatae voluptatum sunt. Commodi possimus vitae corrupti fuga maxime ullam.</p>
+    <p>Iure similique atque asperiores unde veniam, cumque velit neque accusamus aut distinctio illum possimus fuga obcaecati suscipit quibusdam soluta. Unde dolorum aperiam officiis maiores numquam fuga veniam voluptatem minima ea?</p>
+    <p>Ad nisi ab quod officiis magnam tenetur culpa asperiores excepturi neque quaerat, dolores iure autem minima rem? Minima ipsam, minus ea placeat delectus iure similique numquam sapiente nobis aliquid aliquam.</p>
+    <p>Fugiat distinctio, soluta dolorum omnis totam reprehenderit recusandae molestiae ipsum fugit! Molestias, veritatis aut maxime consectetur nam officia eum blanditiis repudiandae quos minus adipisci vel rerum temporibus enim deleniti accusamus.</p>
+    <p>Dolorum asperiores in ut vitae, fuga hic totam repellat nulla ea saepe molestias quod praesentium itaque quidem sunt obcaecati fugiat expedita necessitatibus eligendi minus, dolor enim maiores voluptatem. Eaque, mollitia?</p>
+    <p>Sapiente culpa harum perferendis, nisi itaque officiis repudiandae facilis expedita voluptas fugiat iusto, quisquam maxime asperiores quae deserunt. Amet nobis reprehenderit odit aspernatur numquam ut autem enim? Odio, ad repellendus.</p>
+    <p>Quidem consectetur possimus saepe, provident autem molestiae nesciunt aspernatur, magnam commodi incidunt voluptates aliquam repellendus voluptatem! Sint, labore provident optio ex natus nisi, laborum facere culpa voluptatibus cumque, quos soluta!</p>
+    <p>Minus impedit accusamus repellendus reiciendis quas rem aperiam facere quam nam deleniti ipsa quasi, cupiditate autem debitis est architecto exercitationem fugit illo. Autem voluptatibus aspernatur nesciunt dolorum, aut eligendi rem.</p>
+
+</body>
+</html>
