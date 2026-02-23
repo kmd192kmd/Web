@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 
+        
+            float
+            - 요소를 일반적인 문서 흐름(normal flow)에서 벗어나 컨테이너의 왼쪽(left)이나 오른쪽(right)으로 띄워 배치하는 위치 지정 속성입니다.
+            - 요소가 자기 위치에 출력되지 않고 > 자신이 속한 라인의 맨 왼쪽끝/오른쪽끝에 출력된다.
+
+        */
+        #p1 > span {
+            background-color: dodgerblue;
+            float: right;
+        }
+        #p2 > img {
+            float: right;
+        }
+
+        h1 {
+            border-bottom: 1px dashed #555;
+            /* text-align: right; */
+        }
+        h1 > small {
+            float: right;
+            margin-top: 6px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex25_float.html -->
+    <h1>텍스트 <small>float</small></h1>
+
+    <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius unde modi voluptas. Ullam rerum optio ratione, cumque cum neque eaque commodi deleniti voluptate excepturi alias incidunt eos. Incidunt repellendus deserunt et. Id sint quibusdam eaque assumenda vitae eum minus nam a distinctio, cumque officia iste laboriosam tenetur sapiente accusamus **<span>홍길동</span>** saepe unde quo rerum nemo adipisci. Quod totam eaque blanditiis delectus optio explicabo recusandae ex numquam quibusdam eum. Pariatur aut cupiditate ipsa magni. Accusamus atque iste enim libero culpa minus dolore delectus ipsa aut in omnis, assumenda ab reiciendis rem dolorum labore repellat provident ut unde, impedit voluptate rerum ullam quos.</p>
+
+
+    <p id="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius unde modi voluptas. Ullam rerum optio ratione, cumque cum neque eaque commodi deleniti voluptate excepturi alias incidunt eos. Incidunt repellendus deserunt et. Id sint quibusdam eaque assumenda vitae eum minus nam a distinctio, cumque officia iste laboriosam tenetur sapiente accusamus **<img src="images/man_01.png">** saepe unde quo rerum nemo adipisci. Quod totam eaque blanditiis delectus optio explicabo recusandae ex numquam quibusdam eum. Pariatur aut cupiditate ipsa magni. Accusamus atque iste enim libero culpa minus dolore delectus ipsa aut in omnis, assumenda ab reiciendis rem dolorum labore repellat provident ut unde, impedit voluptate rerum ullam quos.</p>
+    
+</body>
+</html>
