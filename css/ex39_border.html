@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* 
+            border-radius: 모서리 둥글게 
+            - 최대값: 단축의 1/2까지
+            
+        */
+        #img1 {
+            border-radius: 94px;
+        }
+        #img2 {
+            border-radius: 50%;
+        }
+
+        #list input {
+            display: block;
+            margin-bottom: 5px;
+            border: 1px solid #767676;
+            padding: 3px;
+            outline: none;
+            border-radius: 3px;
+        }
+
+        .input {
+
+        }
+        .input > i {
+            border: 1px solid #555;
+            padding: 3px 5px;
+            background-color: #EDEDED;
+            /* border-radius: 5px; */
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            float: left;
+        }
+        .input > input[type=text] {
+            border: 1px solid #555;
+            outline: none;
+            float: left;
+            padding: 3.4px;
+            border-left-width: 0px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .input::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .input.red > i {
+            background-color: tomato;
+        }
+
+        .input.yellow > i {
+            background-color: gold;
+        }
+
+        .input.blue > i {
+            background-color: dodgerblue;
+        }
+
+    </style>
+    <script src="https://kit.fontawesome.com/65ed453a94.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- ex39_border.html -->
+    <h1>테두리</h1>
+
+    <div>
+        <img src="images/dog01.jpg" id="img1">
+        <img src="images/dog01.jpg" id="img2">
+    </div>
+
+    <hr>
+    
+    <h2>데이터</h2>
+
+    <div id="list">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </div>
+
+    <hr>
+
+    <i class="fa-solid fa-magnifying-glass" style="font-size:2em; color: blue;"></i>
+    <span style="font-size: 2em; color: blue;">🔍</span>
+
+    <hr>
+
+    <div>
+        검색: 
+        <input type="text">            
+    </div>
+
+    <hr>
+
+    <!-- 
+    .input.red > i {
+        background-color: tomato;
+    } 
+    -->
+
+    <div class="input red">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text">
+    </div>
+    <hr>
+
+    <div class="input yellow">
+        <i class="fa-regular fa-floppy-disk"></i>
+        <input type="text">
+    </div>
+    <hr>
+
+    <div class="input blue">
+        <i class="fa-regular fa-trash-can"></i>
+        <input type="text">
+    </div>
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

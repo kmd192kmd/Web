@@ -1,0 +1,13 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "tab",
+        "command": "tabout",
+        "when": "editorTextFocus && !editorHasSelection && !inSnippetMode && !hasOtherSuggestions && !suggestWidgetVisible"
+    },
+    {
+        "key": "tab",
+        "command": "jumpToNextSnippetPlaceholder",
+        "when": "editorTextFocus && inSnippetMode"
+    }
+]

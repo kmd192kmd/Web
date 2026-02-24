@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* p > span { color: blue; } */
+
+        /*  
+            CSS 선택자
+
+            1. :first-child
+                - 가상 클래스
+            
+            2. :before(CSS2)  > ::before(CSS3)
+                - 가상 클래스 > 가상 요소(Element)
+
+
+            전후 선택자
+            - content 속성 사용
+            1. ::before
+            2. ::after
+
+        */
+
+        /* 
+        p > span::before {
+            content: '홍길동';
+            color: blue;
+        }
+
+        p > span::after {
+            content: '아무개';
+            color: red;
+        } 
+        */
+
+
+        p > span::before {
+            content: '[';
+            color: red;
+        }
+
+        p > span::after {
+            content: ']';
+            color: red;
+        }
+
+        p > a {
+            color: black;
+            text-decoration: none;
+        }
+        p > a:hover {
+            color: red;
+        }
+
+        p > a::before {
+            content: '🔗';
+        }
+
+        #list {
+
+        }
+        #list span:nth-child(1) {
+            color: blue;
+        }
+        #list span:nth-child(2) {
+            text-align: right;
+            /* border: 1px solid black; */
+            width: 100px;
+            display: inline-block;
+        }
+
+        #list > div > span:nth-child(2)::after {
+            content: '원';
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex37_selector.html -->
+    <h1>선택자</h1>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, <span>홍길동nesciunt아무개</span> provident placeat culpa illo facere modi, <span>veritatis</span> atque maxime <span>dignissimos</span> vel quisquam <a href="">google</a> similique molestiae! Voluptates quo tempore molestiae eaque nostrum?</p>
+
+    <hr>
+
+    <h2>목록</h2>
+    <div id="list">
+        <div><span>마우스: </span><span>50000</span></div>
+        <div><span>키보드: </span><span>70000</span></div>
+        <div><span>모니터: </span><span>200000</span></div>
+        <div><span>프린터: </span><span>250000</span></div>
+        <div><span>노트북: </span><span>1200000</span></div>
+    </div>
+    <hr>
+    <div>
+        <input type="button" value="계산하기" onclick="calc();">
+    </div>
+
+    <hr>
+
+    <style>
+        .box { border: 1px solid black; width: 100px; height: 100px; float: left; }
+
+        #list2::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+    </style>
+    <!-- div.box{상자$}*5 -->
+    <div id="list2">
+        <div class="box">상자1</div>
+        <div class="box">상자2</div>
+        <div class="box">상자3</div>
+        <div class="box">상자4</div>
+        <div class="box">상자5</div>
+    </div>
+    
+    <div>다른 내용</div>
+
+
+    <script>
+        function calc() {
+            let price1 = document.getElementById("list").children[0].children[1].textContent;
+            alert(price1); //5000
+
+            let price2 = document.getElementById("list").children[1].children[1].textContent;
+            //alert(price2); //70000
+
+            //alert(price1 + price2);
+
+        }
+    </script>
+    
+</body>
+</html>

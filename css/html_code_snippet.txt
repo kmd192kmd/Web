@@ -25,22 +25,22 @@
 	"수업용 코드": {
 		"prefix": "!!",
 		"body": [
-			"    <!DOCTYPE html>",
-			"    <html lang=\"ko\">",
-			"    <head>",
-			"        <meta charset=\"UTF-8\">",
-			"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
-			"        <title>Document</title>",
-			"        <style>",
-			"            $0",
-			"        </style>",
-			"    </head>",
-			"    <body>",
-			"        <!-- $TM_FILENAME --> ",
-			"        <h1>${1:제목입력}</h1>",
-			"        ${2:내용입력}",
-			"    </body>",
-			"    </html>"
+			"<!DOCTYPE html>",
+			"<html lang=\"ko\">",
+			"<head>",
+			"    <meta charset=\"UTF-8\">",
+			"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+			"    <title>Document</title>",
+			"    <style>",
+			"        $0",
+			"    </style>",
+			"</head>",
+			"<body>",
+			"    <!-- $TM_FILENAME --> ",
+			"    <h1>${1:제목입력}</h1>",
+			"    ${2:내용입력}",
+			"</body>",
+			"</html>"
 		],
 		"description": "수업용 코드"
 }

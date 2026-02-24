@@ -1,0 +1,17 @@
+{
+    "editor.fontFamily": "'JetBrainMonoHangul NL', Consolas, 'Courier New', monospace",
+    "workbench.colorTheme": "Darcula",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.tabCompletion": "on",
+    "editor.snippetSuggestions": "top",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "workbench.editor.tabActionUnpinVisibility": false,
+    "editor.wordWrap": "on",
+    "emmet.syntaxProfiles": {
+        "html": {
+        "inline_break": 2 
+    },
+    // "tabout.enableTabout": true,
+    // "tabout.ignoreBeforeTabout": false
+    }
+}
