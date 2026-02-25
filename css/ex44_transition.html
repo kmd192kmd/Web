@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* html, body {
+            overflow: hidden;
+        } */
+        #menu {
+            font-size: 0px;
+            margin: 0px auto;
+            width: 630px;
+            transform: translate(0px, -100px);
+        }
+        #footer-menu {
+            font-size: 0px;
+            margin: 0px auto;
+            width: 630px;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            transform: translate(0px, 90px);
+        }
+        #menu > img, #footer-menu > img {
+            transition-property: transform;
+            transition-duration: .5s;
+        }
+        #menu > img:hover {
+            transform: translate(0px, 90px);
+        }
+        #footer-menu > img:hover {
+            transform: translate(0px, -90px);
+        }
+    </style>
+</head>
+<body>
+    <!-- ex44_transition.html -->
+    <div id="menu">
+        <img src="images/rect_icon01.png">
+        <img src="images/rect_icon02.png">
+        <img src="images/rect_icon03.png">
+        <img src="images/rect_icon04.png">
+        <img src="images/rect_icon05.png">
+    </div>
+
+    <div id="footer-menu">
+        <img src="images/rect_icon01.png">
+        <img src="images/rect_icon02.png">
+        <img src="images/rect_icon03.png">
+        <img src="images/rect_icon04.png">
+        <img src="images/rect_icon05.png">
+    </div>
+
+    
+</body>
+</html>
