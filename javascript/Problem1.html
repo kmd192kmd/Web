@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #txt2 {
+            border: 0px solid black;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem1.html --> 
+    <h1>회원가입</h1>
+    
+    <form id="form1">
+        아이디:<input type="text" name="txt1" id="txt1">
+        <input type="text" name="txt2" id="txt2">
+    </form>
+    <script>
+        
+        var input1 = window.document.form1.txt1;
+        var input2 = window.document.form1.txt2;
+
+        input1.onkeyup = m1;
+
+        function m1(event) {
+            if(input1.value.length < 4 || input1.value.length > 12){
+                input2.value = '아이디가 너무 짧습니다.'
+            } else {
+                input2.value = '아이디가 적합합니다.'
+            }
+        }
+
+    </script>
+</body>
+</html>

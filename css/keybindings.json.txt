@@ -3,7 +3,7 @@
     {
         "key": "tab",
         "command": "tabout",
-        "when": "editorTextFocus && !editorHasSelection && !inSnippetMode && !hasOtherSuggestions && !suggestWidgetVisible"
+        "when": "editorTextFocus && !editorHasSelection && !inSnippetMode"
     },
     {
         "key": "tab",
