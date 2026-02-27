@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex19_history.html -->
+    <h1>history</h1>
+    
+    <form name="form1">
+        <input type="button" value="버튼1" name="btn1">
+        <input type="button" value="버튼2" name="btn2">
+        <input type="button" value="버튼3" name="btn3">
+    </form>
+
+    <script>
+        
+        window.document.form1.btn1.onclick = m1;
+        window.document.form1.btn2.onclick = m2;
+        window.document.form1.btn3.onclick = m3;
+
+        //histoy 객체
+        //- window의 자식
+        //- 브라우저 히스토리 영역 > 방문했는 URL를 기록
+        //- 브라우저 히스토리 영역 참조 객체
+
+        function m1() {
+            window.history.back();
+        }
+        function m2() {
+            window.history.forward();
+        }
+        function m3() {
+            window.history.go(-2);
+        }
+
+        //localhost:5500/ex19_history.html
+
+        //ex19 > 네이버 > 카카오 > ex19 > 구글 > 다음
+        //                          △              
+
+    </script>
+</body>
+</html>
+
+
+
+
