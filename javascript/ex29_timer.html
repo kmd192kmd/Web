@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            border: 1px solid gray;
+            border-radius: 5px;
+            width: 200px;
+        }
+        fieldset > input[type=text] {
+            display: block;
+            margin-bottom: 10px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex29_timer.html -->
+    <h1>타이머</h1>
+
+    <form name="form1">
+        <fieldset>
+            <legend>setTimeout/setInterval</legend>
+            <input type="text" name="txt1">
+            <input type="button" value="시작" name="btn1">
+            <input type="button" value="멈춤" name="btn2">
+        </fieldset>
+    </form>
+
+    <hr>
+
+    <img src="images/catty01.png" name="cat1">
+
+    <script>
+    
+        var txt1 = document.form1.txt1;
+        var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;
+
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+
+        /* 
+        
+            타이머, Timer
+            - 비동기 방식 업무 구현 도구
+
+            1. id setTimeout(할일, 시간)
+                - 1회용 타이머
+
+            2. id setInterval(할일, 시간)
+                - 반복 타이머
+
+            3. clearTimeout(id)
+
+            4. clearInterval(id)
+
+
+
+
+            1. 시작 버튼 > 딱 1번만 누를 수 있게 > 일반적인 경우
+
+            2. 시작 버튼 x 사용자 맘대로 누르게
+               멈춤 버튼 x 사용자 맘대로 누르게
+        
+        */
+
+        var id = 0;
+        var n = 1;
+        var list = [];
+
+        function m1() {
+            //setTimeout(f1, 3000);
+            //setInterval(f1, 3000);
+
+            // if (id == 0) { //기존 타이머가 실행 중이 아니라면
+            //     id = setInterval(f1, 100);
+            //     console.log(id);
+
+            //     btn1.disabled = true;
+            //     btn2.disabled = false;
+            // }            
+
+            id = setInterval(f1, 100);
+            list.push(id);
+        };
+
+        function f1() {
+            //alert();
+            //txt1.value = new Date().toLocaleTimeString();
+
+            txt1.value = n;
+            n++;
+        }
+
+        function m2() {
+            clearInterval(id);
+            id = 0;
+
+            // btn1.disabled = false;
+            // btn2.disabled = true;
+
+            //list안의 모든 타이머를 중지
+
+            // while (list.length > 0) {
+            //     id = list.pop();
+            //     clearInterval(id);
+            // }
+
+            id = list.pop();
+            clearInterval(id);
+
+        };
+
+        
+
+
+        document.images['cat1'].onclick = m3;
+
+        id = 0;
+        n = 1;
+
+        function m3() {
+            if (id == 0) {
+                id = setInterval(f3, 10);
+            } else {
+                clearInterval(id);
+                id = 0;
+            }
+        }
+
+        function f3() {
+            n++;
+            if (n > 9) n = 1;
+
+            document.images['cat1'].src
+                = 'images/catty0' + n + '.png';
+        }
+
+    
+    </script>
+</body>
+</html>
