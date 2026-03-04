@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex42_window.html -->
+    <h1>window</h1>
+    
+    <script>
+        
+        const dog = {
+            name: '멍멍이',
+            age: 3,
+            run: function() {
+                console.log(this.name + ' 달린다.');
+            }
+        };
+
+        const list = [ '사과', '귤', '딸기' ];
+
+        //제어문 > for문, 향상된 for문
+        for (let i=0; i<list.length; i++) {
+            console.log(list[i]);
+        }
+
+        //향상된 for문(X) > 객체의 프로퍼티를 탐색하는 루프
+        for (let temp in list) {
+            console.log(temp);
+        }
+        //console.clear();
+
+        for (let temp in dog) {
+            console.log(temp);
+        }
+
+        console.log(typeof list);
+
+        var a = 10;
+        let b = 20;
+        var a = 20;
+
+        console.clear();
+
+        for (let temp in window) {
+            console.log(temp);
+        }
+
+
+
+    </script>
+</body>
+</html>

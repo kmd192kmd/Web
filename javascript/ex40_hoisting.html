@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex40_hoisting.html -->
+    <h1>호이스팅</h1>
+    
+    <script>
+        //let a3; > TDZ 
+        
+        //호이스팅, Hoisting
+        //- 함수 호이스팅 > 사용 O
+        //  - 왜? 개발자가 코드 작성 > 자유도 향상
+        //- 변수 호이스팅 > 신경 X
+        //  - var 사용시에만 발생
+        //  - let/const 사용시에는 발생X
+        //      - TDZ(Temporal Dead Zone) 배치
+        
+        //1. 함수 선언
+        function m1() {
+            alert('m1');
+        }
+
+        //2. 함수 호출
+        //m1();
+
+
+        //m2();
+
+        function m2() {
+            alert('m2');
+        }
+
+
+        var a1;
+        a1 = 10;
+        console.log(a1);
+
+
+        console.log(a2); //undefined
+        var a2;
+        a2 = 20;
+
+        //Cannot access 'a3' before initialization
+        console.log(a3);
+        let a3;
+        a3 = 30;
+
+
+
+    </script>
+</body>
+</html>
