@@ -85,29 +85,29 @@
         //- p.addEventListener(이벤트, 함수, 전파방식)
         //- 버블링 구현O, 터널링 구현O
 
-        p1.addEventListener('click', function() {
-            alert('할아버지');
-        });
-        p2.addEventListener('click', function() {
-            alert('아버지');
-        });
-        p3.addEventListener('click', function() {
-            alert('나');
-        });
+        // p1.addEventListener('click', function() {
+        //     alert('할아버지');
+        // });
+        // p2.addEventListener('click', function() {
+        //     alert('아버지');
+        // });
+        // p3.addEventListener('click', function() {
+        //     alert('나');
+        // });
 
-        p1.addEventListener('click', function() {
-            alert('할아버지');
-            //event.cancelBubble = true; //동작X
-            //event.stopPropagation();
-        }, true);
-        p2.addEventListener('click', function() {
-            alert('아버지');
-            //event.stopPropagation();
-        }, true);
-        p3.addEventListener('click', function() {
-            alert('나');
-            //event.stopPropagation();
-        }, true);
+        // p1.addEventListener('click', function() {
+        //     alert('할아버지');
+        //     //event.cancelBubble = true; //동작X
+        //     //event.stopPropagation();
+        // }, true);
+        // p2.addEventListener('click', function() {
+        //     alert('아버지');
+        //     //event.stopPropagation();
+        // }, true);
+        // p3.addEventListener('click', function() {
+        //     alert('나');
+        //     //event.stopPropagation();
+        // }, true);
 
 
 
