@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border: 1px solid black;
+            width: 400px; height: 400px;
+            background-color: gold;
+        }
+        img { outline: 1px solid black; }
+    </style>
+</head>
+<body>
+    <!-- ex54_jquery.html -->
+    <h1>Interactions <small>Draggable</small></h1>
+    
+    <img src="images/catty01.png" id="cat1">
+
+    <div id="box1">
+        <img src="images/catty02.png" id="cat2">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
+    <script>
+        
+        //업무 > A, B, C > 라이브러리 검색 > A(무료), B, C(유료)
+        $('#cat1').draggable({
+            //axis: 'y'
+            //grid: [128, 128]
+            snap: '#box1, img'
+        });
+
+        $('#cat2').draggable({
+            //containment: '#box1'
+            snap: '#box1, img'
+        });
+
+
+
+    </script>
+</body>
+</html>
