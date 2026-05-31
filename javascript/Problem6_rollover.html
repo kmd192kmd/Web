@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #tbl1 {
+            border: 1px solid #999999;
+        }
+        
+        #tbl1 tr td {
+            padding: 2px;
+        }
+        
+        #txt1 {
+            border: 0px;
+            width: 500px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        body {
+            margin: 30px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+        }
+
+    </style>
+</head>
+<body oncontextmenu='return false' ondragstart='return false' onselectstart='return false'>
+    <!-- Problem6_rollover.html -->
+    
+    <table id="tbl1">
+        <tr>
+            <td><img src="images/img01.jpg" alt="" class="images" id="img1"></td>
+            <td><img src="images/img02.jpg" alt="" class="images" id="img2"></td>
+            <td><img src="images/img03.jpg" alt="" class="images" id="img3"></td>
+        </tr>
+    </table>
+
+    <div>
+        <input type="text" id="txt1" readonly>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+
+        document.querySelectorAll('.images').forEach(img => {
+        // 1. 처음 로드될 때 원본 주소를 저장해둡니다.
+            const originSrc = img.src; 
+
+            img.addEventListener('mouseover', function() {
+                // 숫자를 계산하지 말고, 바뀔 대상만 명확히 지정합니다.
+                let numStr = this.src.substring(this.src.lastIndexOf('img') + 3, this.src.lastIndexOf('.jpg'));
+                // let nextNum = Number(numStr) + 3;
+                // let finalNum = (nextNum < 10) ? '0' + nextNum : nextNum;
+                let finalNum = (Number(numStr) + 3).toString().padStart(2, '0');
+                
+                this.src = `images/img${finalNum}.jpg`;
+                
+                if(numStr === '01') {
+                    document.querySelector('#txt1').value = `'스키'타는 사람이 '당근'으로 변했습니다.`;
+                } else if (numStr === '02') {
+                    document.querySelector('#txt1').value = `'해바라기'가 '피망'으로 변했습니다.`;
+                } else if (numStr === '03') {
+                    document.querySelector('#txt1').value = `'나무'가 '개'가 됐습니다.`;
+                }
+            });
+
+            img.addEventListener('mouseout', function() {
+                // 복잡하게 계산해서 빼지 말고, 아까 저장한 원본으로 되돌립니다.
+                this.src = originSrc;
+                document.querySelector('#txt1').value = "";
+            });
+        });
+        
+        // document.querySelectorAll('.images').forEach(img => {
+
+        //     img.addEventListener('mouseover', function(e) {
+        //         let numStr = this.src.substring(this.src.lastIndexOf('img')+3, this.src.lastIndexOf('.jpg'));
+        //         let num = Number(numStr);
+        //         let nextNum = num + 3;
+        //         let finalNum = (nextNum < 10) ? '0' + nextNum : nextNum ;
+        //         this.src = `images/img${finalNum}.jpg`;
+        //     });
+
+        //     img.addEventListener('mouseout', function(e) {
+        //         let numStr = this.src.substring(this.src.lastIndexOf('img')+3, this.src.lastIndexOf('.jpg'));
+        //         let num = Number(numStr);
+        //         let nextNum = num - 3;
+        //         let finalNum = (nextNum < 10) ? '0' + nextNum : nextNum ;
+        //         this.src = `images/img${finalNum}.jpg`;
+        //     });
+
+        // });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .image-container {
+            position: relative;
+            margin: 50px;
+        }
+
+        .image-container img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+    </style>
+</head>
+<body oncontextmenu="return false;" ondragstart="return false" onselectstart="return false;">
+    <!-- Problem42_transition.html -->
+    <div class="image-container">
+        <img src="images/catty01.png" alt="" class="cat" id="cat1">
+        <img src="images/catty02.png" alt="" class="cat">
+        <img src="images/catty03.png" alt="" class="cat">
+        <img src="images/catty04.png" alt="" class="cat">
+        <img src="images/catty05.png" alt="" class="cat">
+        <img src="images/catty06.png" alt="" class="cat">
+        <img src="images/catty07.png" alt="" class="cat">
+        <img src="images/catty08.png" alt="" class="cat">
+        <img src="images/catty09.png" alt="" class="cat">
+        <img src="images/catty10.png" alt="" class="cat">
+        <img src="images/catty11.png" alt="" class="cat">
+        <img src="images/catty12.png" alt="" class="cat">
+        <img src="images/catty13.png" alt="" class="cat">
+        <img src="images/catty14.png" alt="" class="cat">
+        <img src="images/catty15.png" alt="" class="cat">
+        <img src="images/catty16.png" alt="" class="cat">
+        <img src="images/catty17.png" alt="" class="cat">
+        <img src="images/catty18.png" alt="" class="cat">
+        <img src="images/catty19.png" alt="" class="cat">
+        <img src="images/catty20.png" alt="" class="cat">
+        <img src="images/catty21.png" alt="" class="cat">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+
+        let cats;
+        let pathX = [];
+        let pathY = [];
+        let imgW, imgH;
+        
+        window.onload = function() {
+            cats = document.getElementsByClassName("cat");
+
+            imgW = document.getElementById("cat1").width;
+            imgH = document.getElementById("cat1").height;
+
+           for(var i=0; i<cats.length; i++){
+                cats[i].style.zIndex = (cats.length-i);
+           }
+        };
+
+        window.onmousemove = function(event) {
+            pathX.push(event.clientX);
+            pathY.push(event.clientY);
+
+            if(pathX.length > cats.length){
+                pathX.shift();
+                pathY.shift();
+            }
+
+            moveCat();
+        }
+
+        function moveCat(){
+
+            const container = document.querySelector('.image-container');
+            const ox = container.offsetLeft;
+            const oy = container.offsetTop;
+
+            for(var i=0; i<cats.length; i++){
+                let idx = pathX.length - 1 - i;
+                if(pathX[i] != null){
+                    cats[i].style.left = pathX[idx] - cat1.width/2 - ox + "px";
+                    cats[i].style.top = pathY[idx] - cat1.height/2 - oy + "px";
+                }
+            }
+
+        };
+
+
+
+    </script>
+</body>
+</html>

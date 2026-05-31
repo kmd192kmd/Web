@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #btn1 {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        #cat1 {
+            position: absolute;
+            user-select: none;
+        }
+
+    </style>
+</head>
+<body oncontextmenu="return false;" ondragstart="return false" onselectstart="return false;">
+    <!-- Problem40_transition.html -->    
+
+    <input type="button" value="시작" id="btn1">
+    <img src="images/catty12.png" id="cat1">
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        var cat1 = document.querySelector('#cat1');
+
+        list1 = [];
+        list2 = [];
+
+        window.onmousemove = function(event){
+            
+            if(event.ctrlKey){
+                list1.push(event.clientX);
+                list2.push(event.clientY);
+            }
+
+        };
+
+        var timer = null
+
+        document.querySelector('#btn1').onclick = function(event){
+            if(timer) return;
+            var i = 0;
+            timer = setInterval(function(){
+                if(i >= list1.length){
+                    clearInterval(timer);
+                    timer = null;
+                    list1 = [];
+                    list2 = [];
+                    return;
+                }
+                cat1.style.left = list1[i] + 'px';
+                cat1.style.top = list2[i] + 'px';
+                i++;
+            }, 16)
+
+        };
+
+    </script>
+</body>
+</html>

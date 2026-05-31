@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #location {
+            background-color: cornflowerblue;  
+        }
+
+        .obstacle {
+            background-color: #666666;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table tr td {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem26_dom.html -->
+    
+    <table>
+        <tr>
+            <td id="location"></td>
+            <td></td>
+            <td class="obstacle"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="obstacle"></td>
+            <td></td>
+            <td></td>
+            <td class="obstacle"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="obstacle"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="obstacle"></td>
+        </tr>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+
+        window.addEventListener('keydown', function(e){
+            
+            let nowTd = document.querySelector('#location');
+            let nowTr = nowTd.parentElement;
+            let index = nowTd.cellIndex;
+            let target = null;
+
+            if(e.key === 'ArrowRight'){
+                target = nowTd.nextElementSibling;
+            } else if (e.key === 'ArrowLeft') {
+                target = nowTd.previousElementSibling;
+            } else if (e.key === 'ArrowDown') {
+                if(nowTr.nextElementSibling){
+                    target = nowTr.nextElementSibling.cells[index];
+                }
+            } else if (e.key === 'ArrowUp') {
+                if(nowTr.previousElementSibling){
+                    target = nowTr.previousElementSibling.cells[index];
+                }
+            }
+
+            if(target && !target.classList.contains('obstacle')){
+                nowTd.id = '';
+                target.id = 'location';
+            }
+            
+
+        });
+
+    </script>
+</body>
+</html>

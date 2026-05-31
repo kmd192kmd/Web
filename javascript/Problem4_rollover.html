@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body oncontextmenu="return false;" ondragstart="return false" onselectstart="return false;">
+    <!-- Problem4_rollover.html -->
+    <div>
+        <img src="images/cat01.jpg" alt="cat" id="cat1" class="cats">
+        <img src="images/cat02.jpg" alt="cat" id="cat2" class="cats">
+        <img src="images/cat03.jpg" alt="cat" id="cat3" class="cats">
+        <img src="images/cat04.jpg" alt="cat" id="cat4" class="cats">
+        <img src="images/cat05.jpg" alt="cat" id="cat5" class="cats">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        // $('.cats').on('mouseover', function(event){
+        //     let src = $(this).attr('src'); 
+        //     let num = src.substring(src.lastIndexOf('.') - 2, src.lastIndexOf('.'));
+        //     $(this).attr('src', `images/dog${num}.jpg`);
+        // });
+
+        //  $('.cats').on('mouseout', function(event){
+        //     let src = $(this).attr('src'); 
+        //     let num = src.substring(src.lastIndexOf('.') - 2, src.lastIndexOf('.'));
+        //     $(this).attr('src', `images/cat${num}.jpg`);
+        // });
+
+        document.querySelectorAll('.cats').forEach(img => {
+
+            img.onmouseenter = () => {
+                const num = img.src.substring(img.src.lastIndexOf('.') - 2, img.src.lastIndexOf('.'));
+                img.src = `images/dog${num}.jpg`;
+            };
+
+            img.onmouseleave = () => {
+                const num = img.src.substring(img.src.lastIndexOf('.') - 2, img.src.lastIndexOf('.'));
+                img.src = `images/cat${num}.jpg`;
+            };
+
+        });
+
+    </script>
+</body>
+</html>

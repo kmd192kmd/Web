@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        h1 {
+            color : #555555;
+        }
+
+        table {
+            border-collapse: collapse;
+            color: #444444;
+        }
+
+        table th {
+            border : 1px solid black;
+            width: 150px;
+            height: 50px;
+            background-color: rgb(231, 231, 231);
+        }
+
+        table td {
+            border : 1px solid black;
+            width: 500px;
+        }
+
+        .ssn1 {
+            width: 80px;
+            margin-left: 8px;
+            height: 20px;
+        }
+
+        .ssn2 {
+            width: 20px;
+            height: 20px;
+        }
+
+        #ssnYear {
+            width: 40px;
+            margin-left: 8px;
+        }
+
+        #div1 {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+        }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <!-- Problem10_form.html -->
+    <div id="div1">
+    <h1>회원 가입</h1>
+    
+    <table>
+        <tr>
+            <th>주민번호</th>
+            <td>
+                <input type="text" id="ssnNum1" class="ssn1" autofocus maxlength="6">
+                -
+                <input type="text" id="ssnNum2" class="ssn1" maxlength="7">
+            </td>
+        </tr>
+        <tr>
+            <th>생년월일</th>
+            <td>
+                <input type="text" id="ssnYear" class="ssn2"> 년
+                <input type="text" id="ssnMonth" class="ssn2"> 월
+                <input type="text" id="ssnDate" class="ssn2"> 일
+            </td>
+        </tr>
+        <tr>
+            <th>성별</th>
+            <td>
+                <label>
+                    <input type="radio" name="gender" id="male" value="male"> 남자
+                </label>
+                <input type="radio" name="gender" id="female" value="female"><label for="female">여자</label>
+            </td>
+        </tr>
+    </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        const ssnNum1 = document.querySelector('#ssnNum1');
+        const ssnNum2 = document.querySelector('#ssnNum2');
+        const ssnYear = document.querySelector('#ssnYear');
+        const ssnMonth = document.querySelector('#ssnMonth');
+        const ssnDate = document.querySelector('#ssnDate');
+        const male = document.querySelector('#male');
+        const female = document.querySelector('#female');
+
+        ssnNum1.addEventListener('input', function(e){
+
+            const val = this.value;
+
+            // if(val.length > 6){
+            //     this.value = val.slice(0, 6);
+            // }
+
+            if(val.length === 6){
+                ssnNum2.focus();
+
+                let yearPrefix = (parseInt(val.substring(0, 2)) > 26) ? "19" : "20";
+
+                ssnYear.value = yearPrefix + val.substring(0, 2);
+                ssnMonth.value = val.substring(2, 4);
+                ssnDate.value = val.substring(4, 6);
+            }
+
+        });
+
+        ssnNum2.addEventListener('input', function(e) {
+
+            const firstChar = this.value.charAt(0);
+
+            if(!firstChar) return;
+
+            const genderNum = parseInt(firstChar);
+
+            if(genderNum % 2 === 1){
+                male.checked = true;
+            } else {
+                female.checked = true;
+            }
+
+        });
+
+    </script>
+</body>
+</html>

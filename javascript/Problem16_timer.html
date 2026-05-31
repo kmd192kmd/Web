@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .btns {
+            width: 180px;
+            height: 60px;
+            margin: 2px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        .btns:disabled {
+            background-color: #eee;
+            cursor: not-allowed;
+        }
+
+        #start {
+            cursor: pointer;
+        }
+
+        #div1 {
+            border: 1px solid black;
+            width: 700px;
+            height: 160px;
+            margin: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 76px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        #div2 {
+            margin-left: 60px;
+            width: 600px;
+            text-align: center;
+        }
+
+        .txts {
+            width: 120px;
+            height: 100px;
+            font-size: 76px;
+            font-weight: bold;
+            border: none;
+            text-align: center;
+            color: #333333;
+        }
+        
+        .imgs {
+            width: 95px;
+            height: 140px;
+            object-fit: contain;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem15_timer.html -->
+    
+    <div id="div1">
+        <img src="images/0.png" id="img1" class="imgs">
+        <img src="images/0.png" id="img2" class="imgs">
+        <span>:</span>
+        <img src="images/0.png" id="img3" class="imgs">
+        <img src="images/0.png" id="img4" class="imgs">
+        <span>:</span>
+        <img src="images/0.png" id="img5" class="imgs">
+        <img src="images/0.png" id="img6" class="imgs">
+    </div>
+
+    <div id="div2">
+        <button type="button" id="start" class="btns">시작</button>
+        <button type="button" id="stop" class="btns" disabled>멈춤</button>
+        <button type="button" id="exit" class="btns" disabled>종료</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        const start = document.querySelector('#start');
+        const stop = document.querySelector('#stop');
+        const exit = document.querySelector('#exit');
+
+        const img1 = document.querySelector('#img1');
+        const img2 = document.querySelector('#img2');
+        const img3 = document.querySelector('#img3');
+        const img4 = document.querySelector('#img4');
+        const img5 = document.querySelector('#img5');
+        const img6 = document.querySelector('#img6');
+
+        let timer = 0;
+        let n = 0;
+        let n1 = '';
+        let n2 = '';
+
+        start.addEventListener('click', function(e){
+
+            if(timer === 0){
+                timer = setInterval(function(){
+
+                formatNumber(n % 100);
+                img5.src = n1;
+                img6.src = n2;
+                formatNumber(Math.floor(n / 100) % 60);
+                img3.src = n1;
+                img4.src = n2;
+                formatNumber(Math.floor(n / 100 / 60) % 60);
+                img1.src = n1;
+                img2.src = n2;
+                n++;
+
+                }, 10);
+                start.disabled = true;
+                stop.disabled = false;
+                exit.disabled = false;
+            }
+
+        });
+
+        stop.addEventListener('click', function(e){
+
+            clearInterval(timer);
+            timer = 0;
+            start.disabled = false;
+            stop.disabled = true;
+            exit.disabled = false;
+        });
+
+        exit.addEventListener('click', function(e){
+
+            clearInterval(timer);
+            timer = 0;
+            start.disabled = false;
+            stop.disabled = true;
+            exit.disabled = true;
+            init();
+            n = 0;
+
+        });
+
+        function formatNumber(num){
+
+            if(num < 10) {
+                n1 = 'images/0.png';
+                n2 = `images/${num}.png`;
+                return;
+            } else {
+                n1 = `images/${Math.floor(num / 10)}.png`;
+                n2 = `images/${num % 10}.png`;
+                return;
+            }
+
+        };
+
+        function init() {
+
+            img1.src = 'images/0.png';
+            img2.src = 'images/0.png';
+            img3.src = 'images/0.png';
+            img4.src = 'images/0.png';
+            img5.src = 'images/0.png';
+            img6.src = 'images/0.png';
+
+        };
+
+    </script>
+</body>
+</html>

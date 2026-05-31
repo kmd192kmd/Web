@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        h1 {
+            color: #666666;
+        }
+
+        #box {
+            margin-left: 40px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: 170px 170px 170px;
+            grid-template-rows: 170px 170px 170px;
+        }
+
+        
+
+        .imgs {
+            border: 10px solid #999999;
+        }
+
+        .btns {
+            margin-left: 15px;
+            width: 260px;
+            height: 65px;
+            border: 10px solid #999999;
+            font-size: 32px;
+            color: #666666;
+        }
+
+        body {
+            margin: 30px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Problem7_image.html -->
+    <h1>Pattern Lock</h1>
+    
+    <div id="box">
+        <img src="images/rect_icon01.png" alt="" id="img1" class="imgs">
+        <img src="images/rect_icon02.png" alt="" id="img2" class="imgs">
+        <img src="images/rect_icon03.png" alt="" id="img3" class="imgs">
+        <img src="images/rect_icon04.png" alt="" id="img4" class="imgs">
+        <img src="images/rect_icon05.png" alt="" id="img5" class="imgs">
+        <img src="images/rect_icon06.png" alt="" id="img6" class="imgs">
+        <img src="images/rect_icon07.png" alt="" id="img7" class="imgs">
+        <img src="images/rect_icon08.png" alt="" id="img8" class="imgs">
+        <img src="images/rect_icon09.png" alt="" id="img9" class="imgs">
+    </div>
+    <div>
+        <input type="button" value="RESET" class="btns" id="btn1">
+        <input type="button" value="INPUT" class="btns" id="btn2">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        document.querySelectorAll('.imgs').forEach(img => {
+
+            img.addEventListener('mouseover', function(e) {
+                this.src = "images/rect_icon10.png";
+                img.dataset.status = "on";
+            });
+
+        });
+
+        function reset(){
+
+            document.querySelectorAll('.imgs').forEach((img, index) => {
+                let num = (index + 1).toString().padStart(2, '0');
+                img.src = `images/rect_icon${num}.png`;
+                img.dataset.status = "off";
+            });
+
+        };
+
+        document.querySelector('#btn1').addEventListener('click', reset);
+
+        document.querySelector('#btn2').addEventListener('click', function(e) {
+            
+            const imgs = document.querySelectorAll('.imgs');
+
+            const answer = [0, 3, 6, 7, 8];
+
+            const isCorrect = Array.from(imgs).every((img, index) => {
+                const isSelected = img.dataset.status === 'on';
+
+                if(answer.includes(index)){
+                    return isSelected;
+                } else {
+                    return !isSelected;
+                }
+            });
+
+            if (isCorrect) {
+                location.href = 'https://www.google.com';
+            } else {
+                alert('error!');
+                reset();
+            }
+
+            // let list = [];
+
+            // document.querySelectorAll('.imgs').forEach(img => {
+            //     if (img.src.includes('icon10')) {
+            //         list.push('10');
+            //     } else {
+            //         list.push('00');
+            //     }
+            // });
+
+            // if(list[0] === '10' && list[1] !== '10'
+            //     && list[2] !== '10' && list[3] === '10'
+            //     && list[4] !== '10' && list[5] !== '10'
+            //     && list[6] === '10' && list[7] === '10'
+            //     && list[8] === '10')
+            // {
+            //     location.href = 'https://www.google.com';
+            // } else {
+            //     alert('error!');
+            //     reset();
+            // }
+
+
+        });
+
+    </script>
+</body>
+</html>

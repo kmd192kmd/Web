@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #img1 {
+            position: absolute;
+            left: 800px;
+            top: 300px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem31_style.html -->
+    
+    <img src="images/face10.png" id="img1">
+    
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+
+        const img1 = document.querySelector('#img1');
+
+        img1.addEventListener('mouseover', function(e){
+
+            let currentLeft = img1.offsetLeft;
+            let centerLeft = currentLeft+ (img1.width / 2);
+
+            if(e.clientX >= centerLeft) {
+                img1.style.left = (currentLeft - 100) + 'px';
+            } else {
+                img1.style.left = (currentLeft + 100) + 'px';
+            }
+
+        });
+
+    </script>
+</body>
+</html>

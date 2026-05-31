@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s;
+            font-family: sans-serif;
+        }
+
+        #keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 10px;
+            padding: 20px;
+            border: 1px solid #333;
+            background-color: rgb(250, 234, 234);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        #screen {
+            grid-column: span 3;
+            height: 80px;
+            background-color: #f0f0f0;
+            border: 1px dashed black;
+            margin-bottom: 20px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 15px;
+            cursor: default;
+        }
+
+        button {
+            height: 100px;
+            font-size: 36px;
+            font-weight: bold;
+            background-color: white;
+            border: 1px solid black;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        button:hover { background-color: #f9f9f9;}
+        button:active { background-color: #ddd; transform: scale(0.95);}
+
+        .btn-small { font-size: 20px;}
+
+        .locked { pointer-events: none; opacity: 0.5;}
+
+    </style>
+</head>
+<body>
+    <!-- Problem34_style.html -->
+    
+    <div id="keypad">
+        <div id="screen"></div>
+        
+        <button>7</button><button>8</button><button>9</button>
+        <button>4</button><button>5</button><button>6</button>
+        <button>1</button><button>2</button><button>3</button>
+        <button>0</button>
+        <button class="btn-small">del</button>
+        <button class="btn-small">enter</button>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+
+        const answer = '0425';
+        const screen = document.querySelector('#screen');
+        const keypad = document.querySelector('#keypad');
+        
+        let currentInput = "";
+        let failCount = 0;
+        let isLocked = false;
+
+        // 1. 화면 업데이트
+        function updateScreen() {
+            screen.textContent = currentInput;
+        }
+
+        // 2. 숫자 입력 처리 (배경색 리셋 포함)
+        function inputDigit(digit) {
+            if (isLocked) return;
+            if (currentInput.length < 4) {
+                currentInput += digit;
+                updateScreen();
+                resetColor();
+            }
+        }
+
+        // 3. 삭제(del) 처리
+        function deleteDigit() {
+            if (isLocked) return;
+            currentInput = currentInput.slice(0, -1);
+            updateScreen();
+            resetColor();
+        }
+
+        // 4. 확인(enter) 처리
+        function checkAnswer() {
+            if (isLocked || currentInput.length === 0) return;
+
+            if (currentInput === answer) {
+                document.body.style.backgroundColor = "#66b3ff"; // 성공: 파랑
+                alert("정답입니다!");
+            } else {
+                failCount++;
+                document.body.style.backgroundColor = "#ff8080"; // 실패: 빨강
+                
+                if (failCount >= 3) {
+                    isLocked = true;
+                    document.body.style.backgroundColor = "#bb0000"; // 잠금: 진한 빨강
+                    keypad.classList.add('locked');
+                    alert("3회 오류! 기기가 잠겼습니다.");
+                } else {
+                    alert(`비밀번호가 틀렸습니다. (남은 기회: ${3 - failCount}회)`);
+                }
+            }
+        }
+
+        function resetColor() {
+            if (!isLocked) document.body.style.backgroundColor = "white";
+        }
+
+        // 5. 마우스 클릭 이벤트 (이벤트 위임)
+        keypad.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') return;
+
+            const val = e.target.textContent;
+            if (val >= '0' && val <= '9') {
+                inputDigit(val);
+            } else if (val === 'del') {
+                deleteDigit();
+            } else if (val === 'enter') {
+                checkAnswer();
+            }
+        });
+
+        // 6. 키보드 입력 이벤트 (숫자 범위 체크 적용)
+        window.addEventListener('keydown', (e) => {
+            if (isLocked) return;
+
+            if (e.key >= '0' && e.key <= '9') {
+                inputDigit(e.key);
+            } else if (e.key === 'Backspace' || e.key === 'Delete') {
+                deleteDigit();
+            } else if (e.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        h1 {
+            color: #555555;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem3_image.html -->
+    <h1>고양이</h1>
+    
+    <img src="images/catty01.png" alt="cat" class="cats" id="cat1">
+    <img src="images/catty02.png" alt="cat" class="cats" id="cat2">
+    <img src="images/catty03.png" alt="cat" class="cats" id="cat3">
+    <img src="images/catty04.png" alt="cat" class="cats" id="cat4">
+    <img src="images/catty05.png" alt="cat" class="cats" id="cat5">
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        $(window).on('load', function(){
+
+            $('.cats').each(function() {
+                $(this).data('origin-w', $(this).width());
+                $(this).data('origin-h', $(this).height());
+            });
+
+            $('.cats').click(function() {
+                $(this).width($(this).data('origin-w'));
+                $(this).height($(this).data('origin-h'));
+            });
+
+            $(window).keydown((e) => {
+
+                if(e.key === 'Escape') {
+                    $('.cats').each(function() {
+                        $(this).width($(this).data('origin-w'));
+                        $(this).height($(this).data('origin-h'));
+                    });
+                }
+
+                if(['1', '2', '3', '4', '5'].includes(e.key)){
+
+                    growCat($('#cat' + e.key));
+                }
+
+            });
+
+            $('.cats').mouseover(function() {
+
+                growCat($(this));
+
+            });
+
+            function growCat($el){
+                const currentW = $el.width();
+                if(currentW < 400){
+                    $el.css({
+                        'width': (currentW + 10) + 'px',
+                        'height': ($el.height() + 10) + 'px'
+                    });
+                }
+            }
+
+        });
+
+    </script>
+</body>
+</html>

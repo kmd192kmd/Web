@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        img {
+            /* 이미지가 선택되거나 드래그되는 것을 방지 */
+            -webkit-user-drag: none;  /* Chrome, Safari, Edge */
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            
+            /* 텍스트나 이미지가 파랗게 선택되는 현상 방지 */
+            user-select: none;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem30_style.html -->
+
+
+    
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+
+        window.addEventListener('click', function(e){
+
+            let img = document.createElement('img');
+            let num = Math.floor(Math.random() * 10) + 1;
+
+            if(num !== 10){
+                num = '0' + num;
+            }
+
+            img.src = `images/m${num}.png`;
+
+            img.style.position = 'absolute';
+
+            const imgWidth = 128;
+            const imgHeight = 128;
+            img.style.left = e.clientX - (imgWidth / 2) + 'px';
+            img.style.top = e.clientY - (imgHeight / 2) +'px';
+
+            document.body.appendChild(img);
+
+            let images = document.querySelectorAll('img');
+            if (images.length > 10){
+                images[0].remove();
+            }
+
+        });
+
+    </script>
+</body>
+</html>

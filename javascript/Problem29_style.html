@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        img {
+            /* 이미지가 선택되거나 드래그되는 것을 방지 */
+            -webkit-user-drag: none;  /* Chrome, Safari, Edge */
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            
+            /* 텍스트나 이미지가 파랗게 선택되는 현상 방지 */
+            user-select: none;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem29_style.html -->
+    
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        window.document.addEventListener('click', function(e){
+
+            let img = document.createElement('img');
+            img.src = 'images/face03.png';
+
+            img.style.position = 'absolute';
+
+            img.style.left = e.clientX - (img.width / 2) + 'px';
+            img.style.top = e.clientY - (img.height / 2) + 'px';
+
+            document.body.appendChild(img);
+        });
+
+    </script>
+</body>
+</html>

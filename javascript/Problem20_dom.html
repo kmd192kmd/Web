@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #div1 {
+            border: 1px solid #999;
+            min-height: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem20_dom.html -->
+    <div id="div1"></div>
+    
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        const div1 = document.querySelector('#div1');
+
+        window.addEventListener('keydown', function(e){
+
+            // if(!isNaN(e.key) && e.key !== ' '){
+            //     let num = e.key;
+
+            //     div1.innerHTML += `<img src="images/${num}.png">`;
+            // }
+
+            if (/^[0-9]$/.test(e.key)) {
+
+                const newImg = document.createElement('img');
+
+                newImg.src = `images/${e.key}.png`;
+
+                div1.appendChild(newImg);
+
+            }
+
+        });
+
+    </script>
+</body>
+</html>

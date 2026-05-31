@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        fieldset {
+            color: #333333;
+            width: 300px;
+            height: 200px;
+        }
+
+        input, select {
+            height: 16px;
+            line-height: 16px;
+        }
+
+        fieldset div {
+            margin: 5px;
+        }
+
+        fieldset div:last-child {
+            margin: 10px 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 15px;
+            width: 460px;
+            table-layout: fixed;
+        }
+
+        table tr td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        table tr th {
+            border: 1px solid black;
+            width: 100px;
+            height: 25px;
+            text-align: center;
+            background-color: rgb(255, 233, 233);
+        }
+        
+        table th:nth-child(1) {width: 50px;}
+        table th:nth-child(2) {width: 60px;}
+        table th:nth-child(3) {width: 50px;}
+        table th:nth-child(4) {width: 100px;}
+        table th:nth-child(5) {width: 200px;}
+
+    </style>
+</head>
+<body>
+    <!-- Problem27_dom.html -->
+    
+    <fieldset>
+    <legend>입력 항목</legend>
+        <div>
+            이름: <input type="text" id="name">
+        </div>
+        <div>
+            나이:
+            <select id="age">
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+                <option value="60">60</option>
+            </select>
+        </div>
+        <div>
+            성별:
+            <input type="radio" name="gender" id="male" checked><label for="male">남자</label>
+            <input type="radio" name="gender" id="female"><label for="female">여자</label>
+        </div>
+        <div>
+            주소:
+            <input type="text" id="address">
+        </div>
+        <div>
+            <button id="btn1">추가하기</button>
+        </div>
+    </fieldset>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>성별</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td colspan="5">등록된 항목이 없습니다.</td>
+        </tr>
+    </table>
+    
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        const table = document.querySelector('table');
+        const nameInput = document.querySelector('#name');
+        const ageSelect = document.querySelector('#age');
+        const addressInput= document.querySelector('#address');
+        const maleChecked = document.querySelector('#male');
+        let seq = 1;
+
+        document.querySelector('#btn1').addEventListener('click', function(e){
+
+            const genderInput = document.querySelector('input[name="gender"]:checked');
+
+            if(!nameInput.value || !genderInput){
+                alert("이름과 성별을 확인해주세요!");
+                return;
+            }
+
+            const emptyRow = document.querySelector('table tr:nth-child(2) td[colspan]');
+            if(emptyRow){
+                emptyRow.parentElement.remove();
+            }
+
+            const tr = document.createElement('tr');
+
+            const createCell = (text) => {
+                const td = document.createElement('td');
+                td.textContent = text;
+                return td;
+            }
+
+            tr.appendChild(createCell(seq++));
+            tr.appendChild(createCell(nameInput.value));
+            tr.appendChild(createCell(ageSelect.value));
+
+            const genderTd = document.createElement('td');
+            const img = document.createElement('img');
+
+            if(genderInput.id === 'male'){
+                img.src = 'images/gender_m.png';
+                img.alt = '남자';
+            } else {
+                img.src = 'images/gender_f.png';
+                img.alt = '여자';
+            }
+
+            genderTd.appendChild(img);
+            tr.appendChild(genderTd);
+
+            tr.appendChild(createCell(addressInput.value));
+
+            table.appendChild(tr);
+
+            nameInput.value = '';
+            ageSelect.value = 20;
+            addressInput.value = '';
+            genderInput.checked = false;
+            maleChecked.checked = true;
+
+        });
+
+    </script>
+</body>
+</html>

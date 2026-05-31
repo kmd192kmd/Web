@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .btns {
+            width: 150px;
+            height: 50px;
+            margin: 2px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        .btns:disabled {
+            background-color: #eee;
+            cursor: not-allowed;
+        }
+
+        #start {
+            cursor: pointer;
+        }
+
+        #div1 {
+            border: 1px solid black;
+            width: 600px;
+            height: 160px;
+            margin: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 76px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        #div2 {
+            width: 600px;
+            text-align: center;
+        }
+
+        .txts {
+            width: 120px;
+            height: 100px;
+            font-size: 76px;
+            font-weight: bold;
+            border: none;
+            text-align: center;
+            color: #333333;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem15_timer.html -->
+    
+    <div id="div1">
+        <input type="text" id="txt1" class="txts" value="00" readonly>
+        <span>:</span>
+        <input type="text" id="txt2" class="txts" value="00" readonly>
+        <span>:</span>
+        <input type="text" id="txt3" class="txts" value="00" readonly>
+    </div>
+
+    <div id="div2">
+        <button type="button" id="start" class="btns">시작</button>
+        <button type="button" id="stop" class="btns" disabled>멈춤</button>
+        <button type="button" id="exit" class="btns" disabled>종료</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        const start = document.querySelector('#start');
+        const stop = document.querySelector('#stop');
+        const exit = document.querySelector('#exit');
+
+        const txt1 = document.querySelector('#txt1');
+        const txt2 = document.querySelector('#txt2');
+        const txt3 = document.querySelector('#txt3');
+
+        let timer = 0;
+        let n = 0;
+
+        start.addEventListener('click', function(e){
+
+            if(timer === 0){
+                timer = setInterval(function(){
+
+                txt3.value =  formatNumber(n % 100);
+                txt2.value =  formatNumber(n / 100 % 60);
+                txt1.value =  formatNumber(n / 100 / 60);
+                n++;
+
+                }, 10);
+                start.disabled = true;
+                stop.disabled = false;
+                exit.disabled = false;
+            }
+
+        });
+
+        stop.addEventListener('click', function(e){
+
+            clearInterval(timer);
+            timer = 0;
+            start.disabled = false;
+            stop.disabled = true;
+            exit.disabled = false;
+        });
+
+        exit.addEventListener('click', function(e){
+
+            clearInterval(timer);
+            timer = 0;
+            start.disabled = false;
+            stop.disabled = true;
+            exit.disabled = true;
+            init();
+            n = 0;
+
+        });
+
+        function formatNumber(num){
+
+            if(num < 10) {
+                return '0' + parseInt(num);
+            } else {
+                return parseInt(num);
+            }
+
+        };
+
+        function init() {
+
+            txt1.value = '00';
+            txt2.value = '00';
+            txt3.value = '00';
+
+        };
+
+    </script>
+</body>
+</html>

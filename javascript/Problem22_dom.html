@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        table {
+            border-collapse: collapse;
+        }
+
+        table td{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem22_dom.html -->
+    
+    <table id="tbl1">
+    </table>    
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        const tbody = document.getElementById("tbl1");
+        let rows = 2, cols = 2
+
+        function generate() {
+            let counter = 1;
+            // innerHTML += 대신 DocumentFragment 사용 → DOM 조작 최소화
+            const frag = document.createDocumentFragment();
+
+            for (let i = 0; i < rows; i++) {
+                const tr = document.createElement("tr");
+                for (let j = 0; j < cols; j++) {
+                const td = document.createElement("td");
+                td.textContent = counter++;
+                tr.appendChild(td);
+                }
+                frag.appendChild(tr);
+            }
+
+            tbody.replaceChildren(frag); // innerHTML = "" + appendChild 한번에
+        }
+
+        document.addEventListener("keydown", (e) => {
+            const actions = {
+                ArrowRight: () => cols++,
+                ArrowLeft:  () => { if (cols > 1) cols--; },
+                ArrowDown:  () => rows++,
+                ArrowUp:    () => { if (rows > 1) rows--; },
+            };
+
+            if (e.key in actions) {
+                e.preventDefault();
+                actions[e.key]();
+                generate();
+            }
+        });
+
+        generate(); // 초기 렌더
+
+    </script>
+</body>
+</html>

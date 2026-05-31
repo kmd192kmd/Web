@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        table {
+            border-collapse: collapse;
+            cursor: pointer;
+
+            user-select: none; 
+            -webkit-user-select: none; /* 사파리 지원 */
+            -moz-user-select: none;    /* 파이어폭스 지원 */
+            -ms-user-select: none;     /* IE 지원 */
+        }
+
+        table tr td {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 48px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem23_dom.html -->
+    
+    <table id="tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        document.querySelectorAll('#tbl1 td').forEach(e => {
+
+            e.textContent = '0';
+
+        });
+
+        const tbl = document.querySelector('#tbl1');
+
+        // 왼쪽 클릭 위임
+        tbl.addEventListener('click', (e) => {
+
+            if (e.target.tagName === 'TD') {
+
+                if(e.target.style.backgroundColor === '#ccc') return;
+
+                e.target.textContent = parseInt(e.target.textContent) + 1;
+            }
+        });
+
+        // 오른쪽 클릭 위임
+        tbl.addEventListener('contextmenu', (e) => {
+
+            e.preventDefault();
+
+            if (e.target.tagName === 'TD') {
+
+                if(e.target.style.backgroundColor === '#ccc') return;
+
+                if(e.target.textContent === '0'){
+
+                    e.target.style.backgroundColor = '#ccc';
+                    e.target.style.cursor = 'not-allowed';
+                    return;
+                }
+
+                e.target.textContent = parseInt(e.target.textContent) - 1;
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        table tr td {
+            border: 1px solid black;
+        }
+
+        table tr:nth-child(1) td:nth-child(2){
+            background-color: #FFFF00;
+        }
+
+        table tr:nth-child(2) td:nth-child(2){
+            background-color: #ACEF12;
+        }
+
+        fieldset {
+            width: 250px;
+        }
+
+        #btn1 {
+            margin-top: 10px;
+        }
+
+        #txt1 {
+            height: 15px;
+            line-height: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem21_dom.html -->
+    <h1>테이블</h1>
+    
+    <fieldset>
+        <legend>색상 입력</legend>
+        <div>색상 : <input type="color" id="color"></div>
+        <div>이름 : <input type="text" id="txt1"></div>
+        <div><button id="btn1">추가하기</button></div>
+    </fieldset>
+
+    <table id="tbl1">
+        <thead>
+            <tr>
+                <th>색상명</th>
+                <th>미리보기</th>
+            </tr>
+        </thead>
+        <tbody id="tbody1">
+            <tr>
+                <td>노랑</td>
+                <td>#FFFF00</td>
+            </tr>
+            <tr>
+                <td>풀색</td>
+                <td>#ACEF12</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        const color = document.querySelector('#color');
+        const txt1 = document.querySelector('#txt1');
+        const btn1 = document.querySelector('#btn1');
+        const tbody = document.querySelector('#tbody1');
+
+        btn1.addEventListener('click', function(e){
+
+            const tr = document.createElement('tr');
+            const tdName = document.createElement('td');
+            const tdColor = document.createElement('td');
+
+            tdName.textContent = txt1.value;
+
+            tdColor.textContent = color.value;
+            tdColor.style.backgroundColor = color.value;
+
+            tr.appendChild(tdName);
+            tr.appendChild(tdColor);
+
+            tbody.appendChild(tr);
+
+            color.value = '#000000';
+            txt1.value = '';
+            txt1.focus();
+
+        });
+
+        color.addEventListener('change', function(e){
+
+            txt1.focus();
+
+        });
+
+        txt1.addEventListener('keydown', function(e){
+
+            if (e.repeat) return;
+
+            if(e.key === 'Enter'){
+                btn1.click();
+            }
+
+        });
+    
+
+    </script>
+</body>
+</html>

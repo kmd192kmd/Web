@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cat1 {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Problem39_transition.html -->
+    
+    <img src="images/catty01.png" name="cat1" id="cat1">
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        var cat1 = document.getElementById('cat1');
+
+        window.addEventListener('click', f1);
+
+        function f1(){
+
+            cat1.style['left'] = event.clientX - cat1.width/2 + 'px';
+            cat1.style['top'] = event.clientY - cat1.height/2 + 'px';
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        h1 {
+            color: #555;
+        }
+
+        #btn {
+            background-color: tomato;
+            color: white;
+            font-weight: bold;
+        }
+
+        span {
+            display: inline-flex;
+            border: 1px solid black;
+            width: 80px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        span:hover {
+            cursor: pointer;
+        }
+
+        #box {
+            width: 1024px;
+            margin: 15px auto;
+        }
+
+        #navi {
+            width: 1024px;
+            margin: 0px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem47_animation.html -->
+    <h1>이미지 뷰어</h1>
+    
+    <div id="navi">
+        <span id="btn">▷</span>
+        <span class="num checked" id="01">[1]</span>
+        <span class="num" id="02">2</span>
+        <span class="num" id="03">3</span>
+        <span class="num" id="04">4</span>
+        <span class="num" id="05">5</span>
+        <span class="num" id="06">6</span>
+        <span class="num" id="07">7</span>
+        <span class="num" id="08">8</span>
+        <span class="num" id="09">9</span>
+        <span class="num" id="10">10</span>
+    </div>
+
+    <div id="box">
+        <img id="img" src="images/wall01.jpg">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+
+        const btn = document.querySelector('#btn');
+        const nums = document.querySelectorAll('.num');
+        const img = document.querySelector('#img');
+        let timer = null;
+
+        nums.forEach(span => {
+
+            span.addEventListener('click', function (e){
+
+                if(btn.textContent === '\u23F8'){
+
+                    btn.textContent = '▷';
+                    clearInterval(timer);
+
+                }
+
+                changeImg(this);
+
+            });
+
+        });
+
+        btn.addEventListener('click', function(e){
+
+            if(btn.textContent === '▷'){
+
+                btn.textContent = '\u23F8';
+
+                timer = setInterval(function(){
+
+                    let current = document.querySelector('.checked');
+                    let nextId = parseInt(current.id) + 1;
+                    
+                    if (nextId > 10){
+                        nextId = 1;
+                    }
+
+                    let targetId = nextId < 10 ? '0' + nextId : nextId.toString();
+                    const nextTarget = document.getElementById(targetId);
+
+                    changeImg(nextTarget);
+                    
+                }, 1000);
+            } else {
+
+                btn.textContent = '▷';
+
+                clearInterval(timer);
+
+            }
+
+        });
+
+        function changeImg(target) {
+
+            const num = target.id;
+            img.src = `images/wall${num}.jpg`;
+            
+            const postChecked = document.querySelector('.checked');
+            postChecked.classList.remove('checked');
+            postChecked.textContent = postChecked.textContent.replace('[', '').replace(']', '');
+
+            target.classList.add('checked');
+            target.textContent = `[${target.textContent}]`;
+
+        }
+        
+    </script>
+</body>
+</html>

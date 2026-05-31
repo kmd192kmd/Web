@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            color: #555555;
+        }
+
+        #div1 {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .txts {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            height: 20px;
+            line-height: 20px;
+            box-sizing: border-box;
+        }
+
+        fieldset {
+            width: 400px;
+        }
+
+        #check1 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <!-- Problem9_form.html -->
+    <div id="div1">
+    <h1>주문하기</h1>
+    <fieldset>
+        <legend>주문하시는 분</legend>
+        <div>이름: <input type="text" id="txt1_1" class="txts" autofocus></div>
+        <div>주소: <input type="text" id="txt1_2" class="txts"></div>
+    </fieldset>
+
+    <div><input type="checkbox" id="check1"><label for="check1">주문하시는분과 정보가 동일합니다.</label></div>
+
+     <fieldset>
+        <legend>받으시는 분</legend>
+        <div>이름: <input type="text" id="txt2_1" class="txts"></div>
+        <div>주소: <input type="text" id="txt2_2" class="txts"></div>
+    </fieldset>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        document.querySelector('#check1').addEventListener('change', function(e){
+
+            var check1 = document.querySelector('#check1');
+            var txt1_1 = document.querySelector('#txt1_1');
+            var txt1_2 = document.querySelector('#txt1_2');
+            var txt2_1 = document.querySelector('#txt2_1');
+            var txt2_2 = document.querySelector('#txt2_2');
+
+            //check박스가 change된 후의 값이 들어온다.
+            if(check1.checked){
+                txt2_1.value = txt1_1.value;
+                txt2_2.value = txt1_2.value;
+            } else {
+                txt2_1.value = "";
+                txt2_2.value = "";
+            }
+
+        });
+
+        // 오른쪽 클릭 방지
+        //document.addEventListener('contextmenu', e => e.preventDefault());
+
+        // 드래그 시작 방지
+        //document.addEventListener('dragstart', e => e.preventDefault());
+
+        // 텍스트 선택 방지 (CSS로도 가능하지만 스크립트로 한 번 더!)
+        //document.addEventListener('selectstart', e => e.preventDefault());
+
+    </script>
+</body>
+</html>

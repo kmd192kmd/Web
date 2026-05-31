@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #txt1 {
+            border: 0px;
+            font-weight: bold;
+            font-size: 150px;
+            height: 200px;
+            width: 200px;
+            color: #333333;
+            display: block;
+            text-align: center;
+            margin: 100px auto;
+
+            /* -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none; */
+
+            pointer-events: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Problem13_timer.html -->
+    
+    <div id="div1">
+        <input type="text" id="txt1" value="10" readonly>
+    </div>
+    <div>
+        &lt;input type='text'&gt; 입니다. <br>테두리를 감췄습니다.
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        let count = 10;
+        const display = document.getElementById('txt1');
+
+        const timer = setInterval(() => {
+
+            count--;
+            display.value = count;
+
+            if(count <= 0){
+                clearInterval(timer);
+                location.href = 'https://www.google.com';
+            }
+
+        }, 1000);
+
+        window.addEventListener('keydown', function(e){
+
+            if(e.key === 'Escape'){
+                clearInterval(timer);
+                document.body.style.backgroundColor = 'tomato';
+            }
+
+        });
+
+
+    </script>
+</body>
+</html>

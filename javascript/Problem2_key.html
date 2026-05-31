@@ -7,19 +7,35 @@
     <style>
         
         #txt2 {
-            border: 0px solid black;
+            border: 0px;
             color: red;
+            background-color: white;
+            font-weight: 500;
+        }
+
+        #txt1 {
+            display: block;
+        }
+
+        h1 {
+            color: #555555;
+            user-select: none;
+        }
+
+        #form1 {
+            color: #555555;
+            user-select: none;
         }
 
     </style>
 </head>
 <body>
     <!-- Problem1.html --> 
-    <h1>회원가입</h1>
+    <h1>회원 가입</h1>
     
-    <form id="form1">
+    <form name="form1" id="form1">
         아이디:<input type="text" name="txt1" id="txt1">
-        <input type="text" name="txt2" id="txt2">
+        <input type="text" name="txt2" id="txt2" disabled>
     </form>
     <script>
         

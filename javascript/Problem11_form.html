@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table td {
+            border: 1px solid black;
+            height: 400px;
+        }
+        
+        table td:nth-child(1){
+            width: 200px;
+        }
+
+         table td:nth-child(2){
+            width: 140px;
+            text-align: center;
+        }
+
+         table td:nth-child(3){
+            width: 200px;
+        }
+
+        .btns {
+            width: 120px;
+            height: 35px;
+            margin: 5px;
+        }
+
+        #div1 {
+            text-align: center;
+        }
+
+        #blockedFriends {
+            width: 150px;
+            margin-top: 10px;
+            margin-bottom: 40px;
+            height: 300px; 
+        }
+
+        #allowedFriends {
+            width: 150px;
+             margin-top: 10px;
+             margin-bottom: 40px;
+             height: 300px; 
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem11_form.html -->
+    <table>
+        <tr>
+            <td>
+                <div id="div1">
+                    <div><label for="blockedFriends">차단된 친구</label></div>
+                    <select id="blockedFriends" name="blockedFriends" size="15">
+                    </select>
+                </div>
+            </td>
+            <td>
+                <div><button id="btnAdd" class="btns">Add ▷</button></div>
+                <div><button id="btnRemove" class="btns">◁ Remove</button></div>
+                <div><button id="btnAddAll" class="btns">Add All ▷▷</button></div>
+                <div><button id="btnRemoveAll" class="btns"> ◁◁ Remove All</button></div>
+            </td>
+            <td>
+                <div id="div1">
+                    <div><label for="allowedFriends">허용된 친구</label></div>
+                    <select id="allowedFriends" name="allowedFriends" size="15">
+                    </select>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        const blockedFriends = document.querySelector('#blockedFriends');
+        const allowedFriends = document.querySelector('#allowedFriends');
+        const btnAdd = document.querySelector('#btnAdd');
+        const btnRemove = document.querySelector('#btnRemove');
+        const btnAddAll = document.querySelector('#btnAddAll');
+        const btnRemoveAll = document.querySelector('#btnRemoveAll');
+
+        const list = ["권예진", "권준혁", "김동식", "김세진", "김여정", "노형준",
+            "박민선", "백강현", "변기현"];
+
+        // for(var i=0; i<list.length; i++){
+        //     const opt = document.createElement('option');
+
+        //     opt.value = list[i];
+        //     opt.textContent = list[i];
+
+        //     blockedFriends.appendChild(opt);
+        // }
+
+        const buttons = [btnAdd, btnRemove, btnAddAll, btnRemoveAll];
+        buttons.forEach(btn => btn.disabled = true);
+        buttons.forEach(btn => btn.textContent = "로딩 중...");
+
+        // 비동기 느낌을 내기 위해 0초 뒤 실행 (현재 작업이 끝난 직후 실행됨)
+        setTimeout(() => {
+            const fragment = document.createDocumentFragment(); // 가상의 보관함
+
+            list.forEach(name => {
+                fragment.appendChild(new Option(name, name));
+            });
+
+            blockedFriends.appendChild(fragment); // 단 한 번만 화면에 추가 (매우 빠름!)
+
+            // 모든 작업 완료 후 버튼 활성화
+            buttons.forEach(btn => btn.disabled = false);
+            btnAdd.textContent = 'Add ▷';
+            btnRemove.textContent = '◁ Remove';
+            btnAddAll.textContent = 'Add All ▷▷';
+            btnRemoveAll.textContent = '◁◁ Remove All';
+        }, 0);
+
+        btnAdd.addEventListener('click', function(e){
+
+            const selectedOptions = blockedFriends.selectedOptions;
+
+            Array.from(selectedOptions).forEach(opt => {
+                allowedFriends.appendChild(opt);
+            })
+
+        });
+
+        
+        btnRemove.addEventListener('click', function(e){
+
+            const selectedOptions = allowedFriends.selectedOptions;
+
+            Array.from(selectedOptions).forEach(opt => {
+                blockedFriends.appendChild(opt);
+            })
+
+        });
+
+        btnAddAll.addEventListener('click', function(e){
+
+            Array.from(blockedFriends.options).forEach(opt => {
+                allowedFriends.appendChild(opt);
+            })
+
+        });
+
+        btnRemoveAll.addEventListener('click', function(e){
+
+            Array.from(allowedFriends.options).forEach(opt => {
+                blockedFriends.appendChild(opt);
+            })
+
+        });
+
+        // 왼쪽에서 더블클릭하면 오른쪽으로 이동
+        blockedFriends.addEventListener('dblclick', function() {
+            if (this.selectedIndex !== -1) { // 선택된 게 있다면
+                allowedFriends.appendChild(this.options[this.selectedIndex]);
+            }
+        });
+
+        // 오른쪽에서 더블클릭하면 왼쪽으로 이동
+        allowedFriends.addEventListener('dblclick', function() {
+            if (this.selectedIndex !== -1) {
+                blockedFriends.appendChild(this.options[this.selectedIndex]);
+            }
+        });
+
+    </script>
+</body>
+</html>

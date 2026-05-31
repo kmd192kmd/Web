@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .btns {
+            display: block;
+            margin: 5px;
+            color: #555555;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Problem8-1_form.html -->
+    
+    <button id="btn1" class="btns" data-zip="06232" data-address="서울시 강남구 역삼동">서울시 강남구 역삼동</button>
+    <button id="btn2" class="btns" data-zip="06289" data-address="서울시 강남구 대치동">서울시 강남구 대치동</button>
+    <button id="btn3" class="btns" data-zip="06048" data-address="서울시 강남구 도곡동">서울시 강남구 도곡동</button>
+    
+    
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        
+        document.querySelectorAll(".btns").forEach(btns => {
+
+            btns.addEventListener('click', function(e){
+                
+                const zip = e.target.dataset.zip;
+                const addr = e.target.dataset.address;
+
+                const parentDoc = window.opener.document;
+
+                parentDoc.getElementById('txt1').value = zip;
+                parentDoc.getElementById('txt2').value = addr;
+                parentDoc.getElementById('txt3').focus();
+                window.close();
+
+            })
+
+        });
+
+    </script>
+</body>
+</html>
